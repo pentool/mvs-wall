@@ -1,0 +1,89 @@
+// xs_begin
+// author : '@pentool'
+// arg : { name = 'X-axis' value = '1'  range = '0 1'  step = '1'  decimal = '0' }
+// arg : { name = 'Y-axis' value = '0'  range = '0 1'  step = '1'  decimal = '0' }
+// arg : { name = 'Z-axis' value = '0'  range = '0 1'  step = '1'  decimal = '0' }
+// arg : { name = 'Spacing' value = '1'  range = '0 255'  step = '1'  decimal = '0' }
+// arg : { name = 'Thickness' value = '1'  range = '1 255'  step = '1'  decimal = '0' }
+// arg : { name = 'Type' value = '1'  range = '1 3'  step = '1'  decimal = '0' }
+// xs_end
+
+// Selected color to use.
+float pColor = i_color_index;
+
+// Using x, y, or z axis.
+bool xAxis = bool(i_args[0]);
+bool yAxis = bool(i_args[1]);
+bool zAxis = bool(i_args[2]);
+
+// Spacing between voxels.
+float pSpacing = float(i_args[3]);
+
+// Thickness
+float pThickness = float(i_args[4]);
+
+// Construction type (wall = 1, line = 2, point = 3).
+int pType = int(i_args[5]);
+
+float makeWall(vec3 v) {
+	if ((xAxis && mod(v.x, pThickness) > 0.0 && mod(v.x, pSpacing + pThickness) < pThickness) ||
+		(yAxis && mod(v.y, pThickness) > 0.0 && mod(v.y, pSpacing + pThickness) < pThickness) ||
+		(zAxis && mod(v.z, pThickness) > 0.0 && mod(v.z, pSpacing + pThickness) < pThickness)) {
+		return pColor;
+	}
+	else {
+		return 0.0;
+	}
+}
+
+float makeLine(vec3 v) {
+	float retColor = 0.0;
+
+	if (xAxis) {
+		if ((mod(v.x, pThickness) > 0.0 && mod(v.x, pSpacing + pThickness) < pThickness) && 
+			(mod(v.z, pThickness) > 0.0 && mod(v.z, pSpacing + pThickness) < pThickness)) {
+			retColor = pColor;
+		}
+	}
+
+	if (yAxis) {
+		if ((mod(v.y, pThickness) > 0.0 && mod(v.y, pSpacing + pThickness) < pThickness) && 
+			(mod(v.z, pThickness) > 0.0 && mod(v.z, pSpacing + pThickness) < pThickness)) {
+			retColor = pColor;
+		}
+	}
+
+	if (zAxis) {
+		if ((mod(v.x, pThickness) > 0.0 && mod(v.x, pSpacing + pThickness) < pThickness) && 
+			(mod(v.y, pThickness) > 0.0 && mod(v.y, pSpacing + pThickness) < pThickness)) {
+			retColor = pColor;
+		}
+	}
+
+	return retColor;
+}
+
+float makePoint(vec3 v) {
+	if ((mod(v.x, pThickness) > 0.0 && mod(v.x, pSpacing + pThickness) < pThickness) &&
+		(mod(v.y, pThickness) > 0.0 && mod(v.y, pSpacing + pThickness) < pThickness) &&
+		(mod(v.z, pThickness) > 0.0 && mod(v.z, pSpacing + pThickness) < pThickness)) {
+		return pColor;
+	}
+	else {
+		return 0.0;
+	}
+}
+
+float map(vec3 v) {
+	if (pType == 1) {
+		return makeWall(v);
+	}
+	else if (pType == 2) {
+		return makeLine(v);
+	}
+	else if (pType == 3) {
+		return makePoint(v);
+	}
+
+	return 0.0;
+}
