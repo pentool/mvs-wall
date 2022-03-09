@@ -25,7 +25,7 @@ Adjust the thickness of the generated structure.
 ### Type
 Values: 1 - 3
 
-Type of structure to generate. 1 - walls, 2 - lines, 3 - points.
+Type of structure to generate. 1 - walls, 2 - lines, 3 - points. In type 3 (point) mode, the x/y/z axes settings are ignored.
 
 ### Examples
 Look at the parameter values and model box size on the screenshots to recreate the structure. (Click image for larger version.)
