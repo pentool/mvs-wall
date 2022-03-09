@@ -3,6 +3,8 @@ MagicaVoxel wall shader.
 
 This shader creates various wall-like structures. It has three modes to create walls, lines, or points. You can adjust the model box X/Y/Z size to limit the respective axis size to create longer, wider, narrower, or taller structures.
 
+To install, download "mvs-wall.txt" and place it into your "MagicaVoxel > shader > custom" folder.
+
 ## Parameters
 
 ### X-axis/Y-axis/Z-axis
