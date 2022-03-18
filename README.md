@@ -2,7 +2,7 @@
 
 This shader creates various wall-like structures. It has three modes to create walls, lines, or points. You can adjust the model box X/Y/Z size to limit the respective axis size to create longer, wider, narrower, or taller structures.
 
-You can use this shader in Voxel Shader Mode as well, which allows you to modify the paramters and adjust the model cage in realtime.
+You can use this shader in Voxel Shader Mode as well, which allows you to modify the parameters and adjust the model cage in realtime.
 
 To install, download "mvs-wall.txt" and place it into your "MagicaVoxel > shader > custom" folder.
 
