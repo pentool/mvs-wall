@@ -4,6 +4,8 @@ This shader creates various wall-like structures. It has three modes to create w
 
 You can use this shader in Voxel Shader Mode as well, which allows you to modify the parameters and adjust the model cage in realtime.
 
+See a short [video on YouTube](https://youtu.be/KS0w3WHqEvk) about the shader in action.
+
 To install, download "mvs-wall.txt" and place it into your "MagicaVoxel > shader > custom" folder.
 
 ## Parameters
