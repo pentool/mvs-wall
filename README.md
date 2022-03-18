@@ -3,31 +3,33 @@ MagicaVoxel wall shader.
 
 This shader creates various wall-like structures. It has three modes to create walls, lines, or points. You can adjust the model box X/Y/Z size to limit the respective axis size to create longer, wider, narrower, or taller structures.
 
+You can use this shader in Voxel Shader Mode as well, which allows you to modify the paramters and adjust the model cage in realtime.
+
 To install, download "mvs-wall.txt" and place it into your "MagicaVoxel > shader > custom" folder.
 
 ## Parameters
 
-### X-axis/Y-axis/Z-axis
-Values: 0, 1
-
-Create voxels on the selected axis or on multiple ones. When the value is set to 0, that axis will be ignored.
+### Type
+Values: 1 - 3  
+Type of structure to generate. 1 - walls, 2 - lines, 3 - points. In type 3 (point) mode, the x/y/z axes settings are ignored.
 
 ### Spacing
-Values: 0 - 255
-
+Values: 0 - 255  
 Spacing between voxels.
 
 ### Thickness
-Values: 1 - 255
-
+Values: 1 - 255  
 Adjust the thickness of the generated structure.
 
-### Type
-Values: 1 - 3
+### X/Y/Z Axis
+Values: 0, 1  
+Create voxels on the selected axes. You can select a single or multiple axes. When the value is set to 0, that axis will be ignored.
 
-Type of structure to generate. 1 - walls, 2 - lines, 3 - points. In type 3 (point) mode, the x/y/z axes settings are ignored.
+### X/Y/Z Offset
+Values: -255 - 255  
+Offset the structure left/right or up/down by this many voxels to generate symmetrical surfaces.
 
-### Examples
+## Examples
 Look at the parameter values and model box size on the screenshots to recreate the structure. (Click image for larger version.)
 
 Default "wall".
